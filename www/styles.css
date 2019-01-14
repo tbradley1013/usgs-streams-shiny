@@ -1,0 +1,141 @@
+.btn-loading-container {
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+.btn-done-indicator {
+  color: green;
+}
+.btn-err {
+  margin-top: 10px;
+  color: red;
+}
+
+
+
+.shiny-output-error { 
+  visibility: hidden; 
+}
+.shiny-output-error:before {
+  visibility: visible;
+  content: 'An error occurred. Please contact the admin.'; 
+}
+
+.shiny-output-error-validate {
+  visibility: visible;
+  color: red;
+  font-weight: bold;
+}
+
+.shiny-output-error-validate:before {
+  content: "";
+}
+
+.shiny-split-layout > div {
+  overflow: visible;
+}
+
+body {
+  background: #fafafa;
+}
+
+/* customize the header area */
+.tab-header {
+  margin: -25px -25px 40px;
+	padding: 15px 20px; 
+	box-shadow: 0 0 7px #000;
+  background: #001A70;
+  background: linear-gradient(to left, #001A70, #0078C8);
+  outline: thick;
+  border-bottom: 1px solid #ddd;
+  text-shadow: 0 0 1px #000;
+  color: #FFFFFF;
+}
+
+/* customize the title font */
+.tab-title {
+  font-size: 5em;
+  text-shadow: 0 0 5px #000;
+  margin-left: 10px;
+}
+
+/* customize the subtitle and subsubtitle */
+#subtitle {
+  font-size: 2em;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+#subsubtitle {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+
+
+#subsubtitle a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+#subsubtitle a:hover {
+  color: #001A70;
+}
+
+/* moves the input and download tabs into the header area */
+#tabPage {
+  color: #0078C8;
+  padding: 0 20px;
+  margin-top: -82px;
+  /* margin-left: -25px; */
+  margin-bottom: 10px;
+}
+
+/* changes the background and font color for the tabs in the input box */
+#tabPage>li>a {
+  background: #FFFFFF;
+  /*color: #0078C8; */
+}
+
+/* changing the background and color of the tabs that are active and being 
+hovered over for the select box*/
+#tabPage>li>a:hover,
+#tabPage>li.active>a {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+#tabPage>li.active>a {
+  font-weight: bold;
+  border-top: 2px solid #F37720;
+  margin-top: -2px;
+}
+
+#plot-container {
+  position: relative;
+}
+#loading-spinner {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  z-index: -1;
+  /*margin-top: -33px;   half of the spinner's height */
+  margin-left: -33px; /* half of the spinner's width */
+}
+
+.dynamic_plot.recalculating {
+  z-index: -2;
+}
+
+.dyanmic_plot {
+  margin: 15px;
+}
+
+/*
+#date,
+#submit {
+  margin-left: 20px;
+}
+*/
+
+#submit {
+  margin-top: 15px;
+}
