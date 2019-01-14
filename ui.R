@@ -27,6 +27,10 @@ shinyUI(
         id = "subtitle",
         "Interactive web app to explore USGS River Daily Mean Data at Stream Sites"
       ),
+      div(
+        id = "subsubtitle",
+        "Stream sites last updated 1/14/2018"
+      ),
       br(),
       br()
     ),
@@ -104,3 +108,4 @@ shinyUI(
     )
   )
 )
+

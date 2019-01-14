@@ -16,7 +16,7 @@ shinyServer(
         setView(lat = 37.0902,
                 lng = -95.7129,
                 zoom = 4) %>%
-        addProviderTiles(providers$Hydda.Full) %>%
+        addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
         addCircleMarkers(
           data = usgs_site_info,
           ~dec_long_va,
@@ -56,18 +56,18 @@ shinyServer(
       )
     })
     
-    site_parameters <- reactive({
-      site_dv_info <- whatNWISdata(sites = "01463500", service = "dv")
-      
-      output <- unique(site_dv_info$parm_cd)
-      
-      return(output)
-    })
+    # site_parameters <- reactive({
+    #   site_dv_info <- whatNWISdata(sites = "01463500", service = "dv")
+    #   
+    #   output <- unique(site_dv_info$parm_cd)
+    #   
+    #   return(output)
+    # })
     
     # query data from USGS REST API
     data_raw <- eventReactive(input$submit, {
-      output <- readNWISdv(siteNumbers = input$site, 
-                           parameterCd = site_parameters(),
+      output <- readNWISdata(siteNumbers = input$site, 
+                           # parameterCd = site_parameters(),
                            startDate = input$date[[1]],
                            endDate = input$date[[2]])
       
@@ -142,7 +142,7 @@ shinyServer(
     my_plots <- function(data){
       data %>%
         plot_ly(
-          x = ~Date,
+          x = ~dateTime,
           y = ~result,
           type = "scatter",
           mode = "lines+markers",
@@ -153,7 +153,7 @@ shinyServer(
           text = ~paste(
             "Site:", station_nm,
             "<br>Parameter:", parameter_desc,
-            "<br>Date Time:", format(Date, "%m/%d/%Y"),
+            "<br>Date Time:", format(dateTime, "%m/%d/%Y %H:%M"),
             "<br>Result:", result
           )
         ) %>%
