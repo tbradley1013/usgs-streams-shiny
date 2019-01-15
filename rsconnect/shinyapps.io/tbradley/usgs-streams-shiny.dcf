@@ -1,0 +1,12 @@
+name: usgs-streams-shiny
+title: usgs-streams-shiny
+username:
+account: tbradley
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 643750
+bundleId: 1815441
+url: https://tbradley.shinyapps.io/usgs-streams-shiny/
+when: 1547562002.4266
+asMultiple: FALSE
+asStatic: FALSE

@@ -2,7 +2,7 @@
 # This script contains the server code for the USGS River Data Web App
 #
 # Tyler Bradley
-# 2018-04-06
+# 2018-01-14
 #==============================================================================
 
 
@@ -176,14 +176,9 @@ shinyServer(
         )
     }
 
-    colors <- eventReactive(input$submit, {
-      req(data_cleaned(), parameter_count())
-      pwd_pals("dark")(parameter_count())
-    })
-
     # create the different plotly graphs
     graphs <- eventReactive(input$submit, {
-      req(data(), colors())
+      req(data())
       data() %>%
         group_by(site_no, parm_nm, parameter_code, unit) %>%
         nest() %>%

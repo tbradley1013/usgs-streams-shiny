@@ -2,7 +2,7 @@
 # This script contains the global.R code for the USGS River Data Web App
 #
 # Tyler Bradley
-# 2018-04-06
+# 2019-01-14
 #==============================================================================
 
 suppressWarnings({
@@ -18,10 +18,11 @@ suppressWarnings({
   })
 })
 
+`%p%` <- function(x, y) paste0(x, y)
 
 usgs_site_info <- read_rds("data/usgs-stream-sites.rds")
 # usgs_site_info <- pa_streams
-usgs_parameter_list <- read_rds("data/usgs-parameters.rds")
+parameter_df <- read_rds("data/usgs-parameters.rds")
 
 
 site_list <- usgs_site_info$site_no
@@ -39,14 +40,6 @@ usgs_site_info$hover_text <- map2(
         "<div style = 'width:95%%'>" %p%
         "<span style = 'font-weight:bold'>Site Name:</span><br/>" %p%
         "<span style = 'font-size:11px;font-style:italic;float:right'>%s</span><br/>" %p%
-        # "<span>Facility:</span><br/>" %p%
-        # "<span style = 'font-size:11px;font-style:italic;float:right'>%s</span><br/>" %p%
-        # "<span>Service Area:</span><br/>" %p%
-        # "<span style = 'font-size:11px;font-style:italic;float:right'>%s</span><br/>" %p%
-        # "<span>Pressure District:</span><br/>" %p%
-        # "<span style = 'font-size:11px;font-style:italic;float:right'>%s</span><br/>" %p%
-        # "<span>Sample Days:</span><br/>" %p%
-        # "<span style = 'font-size:11px;font-style:italic;float:right'>%s</span><br/>" %p%
         "</div>" %p%
         "</div>",
       if_else(nchar(.y) > 40, "325", "275"),
