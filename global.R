@@ -15,6 +15,7 @@ suppressWarnings({
     library(plotly)
     library(leaflet)
     library(sp)
+    library(feather)
   })
 })
 
