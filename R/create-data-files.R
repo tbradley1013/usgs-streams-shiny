@@ -7,6 +7,7 @@
 
 library(tidyverse)
 library(dataRetrieval)
+library(feather)
 
 pa_streams <- whatNWISsites(stateCd = "PA", siteType = "ST", site_output = "basic")
 
@@ -37,7 +38,7 @@ all_stream_sites <- stateCd$STUSAB %>%
 all_stream_sites %>% 
   as_tibble() %>% 
   filter(!is.na(site_no)) %>% 
-  write_rds("data/usgs-stream-sites.rds", compress = "xz", compression = 9L)
+  write_feather("data/usgs-stream-sites.feather")
 
 
 
@@ -49,4 +50,4 @@ parameter_df <- read_tsv("data/parameter_cd_query-raw.txt", skip = 7) %>%
   filter(row_number() > 1)
 
 
-write_rds(parameter_df, "data/usgs-parameters.rds", compress = "xz", compression = 9L)
+write_feather(parameter_df, "data/usgs-parameters.feather")

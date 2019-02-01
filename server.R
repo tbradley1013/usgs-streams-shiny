@@ -56,6 +56,10 @@ shinyServer(
       )
     })
     
+    current_site <- eventReactive(input$submit, {
+      input$site
+    })
+    
     # site_parameters <- reactive({
     #   site_dv_info <- whatNWISdata(sites = "01463500", service = "dv")
     #   
@@ -178,7 +182,7 @@ shinyServer(
 
     # create the different plotly graphs
     graphs <- eventReactive(input$submit, {
-      req(data())
+      req(data(), current_site() == input$site)
       data() %>%
         group_by(site_no, parm_nm, parameter_code, unit) %>%
         nest() %>%
@@ -203,7 +207,7 @@ shinyServer(
 
 
     output$graphs_ui <- renderUI({
-      req(graphs())
+      req(graphs(), current_site() == input$site)
       if (!is.null(data_raw())){
 
       plots_list <-  map(seq_along(graphs()),

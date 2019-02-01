@@ -15,14 +15,15 @@ suppressWarnings({
     library(plotly)
     library(leaflet)
     library(sp)
+    library(feather)
   })
 })
 
 `%p%` <- function(x, y) paste0(x, y)
 
-usgs_site_info <- read_rds("data/usgs-stream-sites.rds")
+usgs_site_info <- read_feather("data/usgs-stream-sites.feather")
 # usgs_site_info <- pa_streams
-parameter_df <- read_rds("data/usgs-parameters.rds")
+parameter_df <- read_feather("data/usgs-parameters.feather")
 
 
 site_list <- usgs_site_info$site_no
