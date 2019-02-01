@@ -43,7 +43,7 @@ shinyServer(
     })
 
     observeEvent(input$site_map_marker_click, {
-      updateTabsetPanel(session, "tabPage", selected = "siteGraphs")
+      updateTabsetPanel(session, "navPage", selected = "siteGraphs")
     })
     
     # map_click <- callModule(site_map, "site-map", sess = session)

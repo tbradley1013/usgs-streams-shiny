@@ -7,35 +7,15 @@
 
 
 shinyUI(
-  fluidPage(
+  tagList(
     useShinyjs(),
     useShinyalert(),
     
-    title = "USGS Stream Data",
     
     includeCSS("www/styles.css"),
-    
-    div(
-      id = "header",
-      class = "tab-header",
-      div(
-        id = "title",
-        class = "tab-title",
-        "USGS Stream Data"
-      ),
-      div(
-        id = "subtitle",
-        "Interactive web app to explore USGS River Daily Mean Data at Stream Sites"
-      ),
-      div(
-        id = "subsubtitle",
-        "Stream sites last updated 1/14/2018"
-      ),
-      br(),
-      br()
-    ),
-    tabsetPanel(
-      id = "tabPage",
+    navbarPage(
+      id = "navPage",
+      title = "USGS Stream Data",
       tabPanel(
         id = "site-map-tab",
         class = "tab-panel",
