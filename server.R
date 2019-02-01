@@ -24,6 +24,9 @@ shinyServer(
           radius = 8,
           layerId = ~as.character(site_no),
           label = ~hover_text,
+          stroke = FALSE,
+          color = "#0000ff",
+          fillOpacity = 0.6, 
           clusterOptions = markerClusterOptions(),
           labelOptions = labelOptions(
             # offset = c(20,-100),

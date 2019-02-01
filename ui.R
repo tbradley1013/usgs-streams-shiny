@@ -16,6 +16,7 @@ shinyUI(
     navbarPage(
       id = "navPage",
       title = "USGS Stream Data",
+      theme = shinytheme("united"),
       tabPanel(
         id = "site-map-tab",
         class = "tab-panel",

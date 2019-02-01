@@ -16,6 +16,7 @@ suppressWarnings({
     library(leaflet)
     library(sp)
     library(feather)
+    library(shinythemes)
   })
 })
 
